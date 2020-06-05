@@ -1,0 +1,25 @@
+name: no_bloc_flutter
+description: Making blocs easy again. A simplified library for the original bloc approach.
+version: 0.1.0
+homepage: https://github.com/MohiuddinM/no_bloc_flutter
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  no_bloc: ^0.1.0
+  rxdart: '>=0.24.1 <1.0.0'
+  hive: ^1.0.0
+  synchronized: ^2.0.0
+  quick_log: ^0.4.0
+  path_provider: ^1.0.0
+  path: ^1.0.0
+
+dev_dependencies:
+  test: ^1.6.0
+  flutter_test:
+    sdk: flutter
+
+flutter:

@@ -1,0 +1,1 @@
+Flutter helper for `no_bloc` library
