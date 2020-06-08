@@ -1,24 +1,14 @@
 import 'package:no_bloc_flutter/no_bloc_flutter.dart';
 import 'package:flutter/material.dart';
 
-class PersistentCounterBloc extends AutoPersistedBloc<PersistentCounterBloc, int> {
+class CounterBloc extends AutoPersistedBloc<CounterBloc, int> {
   final int counterNumber;
 
-  PersistentCounterBloc({this.counterNumber}) : super(initialState: 0);
+  CounterBloc({this.counterNumber}) : super(initialState: 0);
 
   void increment() => setState(value + 1, event: 'increment');
 
   void decrement() => setState(value - 1, event: 'decrement');
-}
-
-class CounterBloc extends Bloc<CounterBloc, int> {
-  final int id;
-
-  CounterBloc({this.id});
-
-  void increment() => setState(value + 1);
-
-  void decrement() => setState(value - 1);
 }
 
 class MyApp extends StatelessWidget {
@@ -50,6 +40,6 @@ class MyApp extends StatelessWidget {
 }
 
 void main() {
-  BlocContainer.add<CounterBloc>((context, arg) => CounterBloc(id: arg ?? 0));
+  BlocContainer.add<CounterBloc>((context, arg) => CounterBloc(counterNumber: arg ?? 0));
   runApp(MyApp());
 }
