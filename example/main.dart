@@ -14,6 +14,8 @@ class CounterBloc extends AutoPersistedBloc<CounterBloc, int> {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final bloc = BlocContainer.get<CounterBloc, int>();
+
     return MaterialApp(
       home: Scaffold(
         body: Center(
@@ -21,8 +23,7 @@ class MyApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('You have pushed the button this many times:'),
-              BlocBuilder(
-                bloc: BlocContainer.get<CounterBloc, int>(),
+              bloc.builder(
                 onUpdate: (context, data) => Text(data.toString(), style: Theme.of(context).textTheme.headline4),
                 onBusy: (_) => Text('Working'),
                 onError: (_, e) => Text('Error Occurred'),
