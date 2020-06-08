@@ -39,7 +39,7 @@ class BlocListBuilder<R, S> extends StatelessWidget {
     return StreamBuilder<ListOp<S>>(
       stream: bloc.state,
       builder: (_, snapshot) {
-        final op = snapshot.data;
+//        final op = snapshot.data;
 
         if (bloc.isBusy) {
           assert(onBusy != null);
