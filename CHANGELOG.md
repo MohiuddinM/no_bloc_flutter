@@ -1,3 +1,7 @@
+## 0.2.0
+
+* update no_bloc
+
 ## 0.1.2
 
 * add bloc extension
