@@ -30,8 +30,10 @@ class BlocBuilder<R extends Bloc<R, S>, S> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // bloc.value can not be accessed here, because we are not sure if it is set or not
+    // and if it is not set, then it will throw an error
+    // bloc uses BehaviorSubject, so bloc.state should immediately return bloc.value if it was set
     return StreamBuilder<S>(
-      initialData: bloc.value,
       stream: bloc.state,
       builder: (context, snapshot) {
         if (bloc.isBusy || snapshot.connectionState == ConnectionState.waiting) {
