@@ -1,7 +1,10 @@
+## 0.2.3
+
+* major bug fix
+
 ## 0.2.2
 
 * minor changes
-
 
 ## 0.2.1
 

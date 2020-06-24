@@ -7,6 +7,12 @@ class CounterBloc extends Bloc<CounterBloc, int> {
   void decrement() => setState(value - 1);
 }
 
+class CounterBloc2 extends Bloc<CounterBloc2, int> {
+  void increment() => setState(value + 1);
+
+  void decrement() => setState(value - 1);
+}
+
 void main() {
   setUp(() => BlocContainer.clear());
 
@@ -35,5 +41,15 @@ void main() {
     final CounterBloc blocx = BlocContainer.get();
 
     expect(bloc, blocx);
+  });
+
+  test('container should fetch bloc of specified type even if args are same', () {
+    BlocContainer.add((context, arg) => CounterBloc());
+    BlocContainer.add((context, arg) => CounterBloc2());
+
+    final CounterBloc bloc = BlocContainer.get();
+    final CounterBloc2 blocx = BlocContainer.get();
+
+    expect(blocx.runtimeType, isNot(CounterBloc));
   });
 }
