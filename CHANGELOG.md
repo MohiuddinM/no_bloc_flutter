@@ -1,3 +1,15 @@
+## 0.3.3
+
+* remove import of dart:io, to keep compatible with web
+
+## 0.3.2
+
+* bug fix
+
+## 0.3.1
+
+* add a check for running on web
+
 ## 0.3.0
 
 * add a default onBusy function

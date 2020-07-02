@@ -1,11 +1,11 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' as mat;
 import 'package:flutter/widgets.dart';
 import 'package:no_bloc/no_bloc.dart';
-import 'package:no_bloc_flutter/no_bloc_flutter.dart';
+
+import 'bloc_builder.dart';
 
 extension BlocExtensions<R extends Bloc<R, S>, S> on Bloc<R, S> {
   Widget builder({Key key, @required DataBuilder<S> onUpdate, WidgetBuilder onBusy, ErrorBuilder onError}) {
@@ -16,11 +16,20 @@ extension BlocExtensions<R extends Bloc<R, S>, S> on Bloc<R, S> {
               return const SizedBox();
             }
 
+//            Widget child;
+//            if (kIsWeb) {
+//              child = mat.CircularProgressIndicator();
+//            } else {
+//              child = Platform. ? mat.CircularProgressIndicator() : CupertinoActivityIndicator();
+//            }
+
+            final child = mat.CircularProgressIndicator();
+
             return Center(
               child: SizedBox(
                 width: min(40, crts.maxWidth),
                 height: min(40, crts.maxHeight),
-                child: Platform.isAndroid ? mat.CircularProgressIndicator() : CupertinoActivityIndicator(),
+                child: child,
               ),
             );
           },
