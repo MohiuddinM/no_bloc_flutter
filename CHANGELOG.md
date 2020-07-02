@@ -1,3 +1,8 @@
+## 0.3.0
+
+* add a default onBusy function
+* update documentation
+
 ## 0.2.3
 
 * major bug fix
