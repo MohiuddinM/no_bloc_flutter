@@ -1,4 +1,5 @@
 import 'package:no_bloc_flutter/no_bloc_flutter.dart';
+import 'package:path_provider/path_provider.dart' as paths;
 import 'package:flutter/material.dart';
 
 class CounterBloc extends AutoPersistedBloc<CounterBloc, int> {
@@ -40,7 +41,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-void main() {
+void main() async {
+  final documentsDir = (await paths.getApplicationDocumentsDirectory()).path;
+  HivePersistenceService.databaseDirectory = documentsDir;
   BlocContainer.add<CounterBloc>((context, arg) => CounterBloc(counterNumber: arg ?? 0));
   runApp(MyApp());
 }
