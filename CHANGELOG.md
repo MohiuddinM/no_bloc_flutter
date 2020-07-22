@@ -1,3 +1,7 @@
+## 0.3.10
+
+* update example
+
 ## 0.3.3
 
 * remove import of dart:io, to keep compatible with web
