@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' as mat;
 import 'package:flutter/widgets.dart';
 import 'package:no_bloc/no_bloc.dart';
@@ -16,14 +17,12 @@ extension BlocExtensions<R extends Bloc<R, S>, S> on Bloc<R, S> {
               return const SizedBox();
             }
 
-//            Widget child;
-//            if (kIsWeb) {
-//              child = mat.CircularProgressIndicator();
-//            } else {
-//              child = Platform. ? mat.CircularProgressIndicator() : CupertinoActivityIndicator();
-//            }
-
-            final child = mat.CircularProgressIndicator();
+            Widget child;
+            if (kIsWeb) {
+              child = mat.CircularProgressIndicator();
+            } else {
+              child = defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.macOS ? CupertinoActivityIndicator() : mat.CircularProgressIndicator();
+            }
 
             return Center(
               child: SizedBox(
